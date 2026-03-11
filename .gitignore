@@ -1,0 +1,5 @@
+_pycache_/
+.cache/
+.anydesk
+.bash_history
+*.pyc
