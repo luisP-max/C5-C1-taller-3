@@ -9,7 +9,7 @@ def register_sales():
     sales = []
     another = 'y'
     while another.lower() == 'y':
-        product = input("Enter product name: ").strip()
+        product = input("Enter product name: ")
         
         try:
             price = float(input("Enter unit price: "))
