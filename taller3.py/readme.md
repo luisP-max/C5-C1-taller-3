@@ -1,64 +1,58 @@
-General Idea
-The function register_sales() is designed to interactively record sales. Each sale has:
+# register_sales()
 
+The **`register_sales()`** function allows you to interactively record sales.  
+Each sale includes:
 
-- A product name,
+- Product name  
+- Unit price  
+- Quantity sold  
 
+Sales are stored as dictionaries inside a list. The process continues until the user decides to stop.
 
-- A unit price,
+---
 
+## Step-by-Step Flow
 
-- A quantity sold.
+1. **Function start**
+   - A list `sales` is created to store all sales.
+   - A variable `another = 'y'` is initialized to start the loop.
 
+2. **Looping**
+   - As long as the user answers `'y'`, the program keeps registering sales.
 
-Every sale is stored as a dictionary inside a list. The function keeps asking for new sales until the user decides to stop, and then it returns the complete list.
+3. **User input**
+   - The program asks for:
+     - Product name
+     - Unit price
+     - Quantity sold
+   - Input validation with `try/except`:
+     - If the price is invalid → defaults to `0.0`.
+     - If the quantity is invalid → defaults to `0`.
 
-Step-by-Step Flow
-1) Start of the function
+4. **Saving the sale**
+   - A dictionary is created:
+     ```python
+     {'product': product, 'price': price, 'quantity': quantity}
+     ```
+   - The dictionary is appended to the `sales` list.
 
-- A list sales is created to hold all the sales.
+5. **Confirmation**
+   - A message confirms the sale:
+     ```
+     Sale registered: 10 Apple at $1.50
+     ```
 
-- A variable another is set to 'y' so the loop starts.
+6. **Continue or stop**
+   - The user is asked if they want to register another sale (`y/n`).
+   - `'y'` → loop continues.  
+   - `'n'` → loop ends.
 
-2) Looping
+7. **Return**
+   - When finished, the function returns the complete list of sales.
 
-- The program enters a while loop that continues as long as the user answers 'y' when asked if they want to register another sale.
+---
 
-3) User input
-
-- The program asks for the product name, unit price, and quantity.
-
-- It uses try/except blocks to handle invalid inputs:
-
-- If the price isn’t a valid number, it defaults to 0.0.
-
-- If the quantity isn’t a valid integer, it defaults to 0.
-
-4) Saving the sale
-
-- A dictionary is created like this:
-
-{'product': product, 'price': price, 'quantity': quantity}
-
-- That dictionary is added to the sales list.
-
-5) Confirmation
-
-- The program prints a message confirming the sale, showing the quantity, product, and formatted price.
-
-6) Ask to continue
-
-- The user is asked if they want to register another sale (y/n).
-
-- If they type 'y', the loop repeats. If 'n', the loop ends.
-
-7) Return
-
-- When the loop ends, the function returns the full list of sales.
-
-Example Run
-If you enter:
-
+## Example Run
 
 Enter product name: Apple
 Enter unit price: 1.5
@@ -69,10 +63,8 @@ Enter unit price: 2
 Enter quantity sold: 5
 Do you want to register another sale? (y/n): n
 
-
-The function will return:
-
-
+### Returned result:
+```python
 [
     {'product': 'Apple', 'price': 1.5, 'quantity': 10},
     {'product': 'Banana', 'price': 2.0, 'quantity': 5}
